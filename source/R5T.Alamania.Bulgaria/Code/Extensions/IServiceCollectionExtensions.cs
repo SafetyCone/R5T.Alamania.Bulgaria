@@ -12,31 +12,31 @@ namespace R5T.Alamania.Bulgaria
     public static class IServiceCollectionExtensions
     {
         /// <summary>
-        /// Adds the <see cref="BulgariaRivetOrganizationDirectoryPathProvider"/> implementation of <see cref="IRivetOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="RivetOrganizationDirectoryPathProvider"/> implementation of <see cref="IRivetOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceCollection AddBulgariaRivetOrganizationDirectoryPathProvider(this IServiceCollection services,
-            ServiceAction<IDropboxDirectoryPathProvider> addDropboxDirectoryPathProvider,
-            ServiceAction<IOrganizationStringlyTypedPathOperator> addOrganizationStringlyTypedPathOperator)
+        public static IServiceCollection AddRivetOrganizationDirectoryPathProvider(this IServiceCollection services,
+            IServiceAction<IDropboxDirectoryPathProvider> dropboxDirectoryPathProviderAction,
+            IServiceAction<IOrganizationStringlyTypedPathOperator> organizationStringlyTypedPathOperatorAction)
         {
             services
-                .AddSingleton<IRivetOrganizationDirectoryPathProvider, BulgariaRivetOrganizationDirectoryPathProvider>()
-                .RunServiceAction(addDropboxDirectoryPathProvider)
-                .RunServiceAction(addOrganizationStringlyTypedPathOperator)
+                .AddSingleton<IRivetOrganizationDirectoryPathProvider, RivetOrganizationDirectoryPathProvider>()
+                .RunServiceAction(dropboxDirectoryPathProviderAction)
+                .RunServiceAction(organizationStringlyTypedPathOperatorAction)
                 ;
 
             return services;
         }
 
         /// <summary>
-        /// Adds the <see cref="BulgariaRivetOrganizationDirectoryPathProvider"/> implementation of <see cref="IRivetOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="RivetOrganizationDirectoryPathProvider"/> implementation of <see cref="IRivetOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static ServiceAction<IRivetOrganizationDirectoryPathProvider> AddBulgariaRivetOrganizationDirectoryPathProviderAction(this IServiceCollection services,
-            ServiceAction<IDropboxDirectoryPathProvider> addDropboxDirectoryPathProvider,
-            ServiceAction<IOrganizationStringlyTypedPathOperator> addOrganizationStringlyTypedPathOperator)
+        public static IServiceAction<IRivetOrganizationDirectoryPathProvider> AddRivetOrganizationDirectoryPathProviderAction(this IServiceCollection services,
+            IServiceAction<IDropboxDirectoryPathProvider> dropboxDirectoryPathProviderAction,
+            IServiceAction<IOrganizationStringlyTypedPathOperator> organizationStringlyTypedPathOperatorAction)
         {
-            var serviceAction = new ServiceAction<IRivetOrganizationDirectoryPathProvider>(() => services.AddBulgariaRivetOrganizationDirectoryPathProvider(
-                addDropboxDirectoryPathProvider,
-                addOrganizationStringlyTypedPathOperator));
+            var serviceAction = new ServiceAction<IRivetOrganizationDirectoryPathProvider>(() => services.AddRivetOrganizationDirectoryPathProvider(
+                dropboxDirectoryPathProviderAction,
+                organizationStringlyTypedPathOperatorAction));
             return serviceAction;
         }
     }

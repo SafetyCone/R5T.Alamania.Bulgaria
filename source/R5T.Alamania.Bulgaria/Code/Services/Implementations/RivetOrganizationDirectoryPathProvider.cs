@@ -10,13 +10,13 @@ namespace R5T.Alamania.Bulgaria
     /// <summary>
     /// Provides the Rivet organization directory path from the Dropbox directory path (provided by the codenamed Bulgaria project).
     /// </summary>
-    public class BulgariaRivetOrganizationDirectoryPathProvider : IRivetOrganizationDirectoryPathProvider
+    public class RivetOrganizationDirectoryPathProvider : IRivetOrganizationDirectoryPathProvider
     {
         public IDropboxDirectoryPathProvider DropboxDirectoryPathProvider { get; }
         public IOrganizationStringlyTypedPathOperator OrganizationStringlyTypedPathOperator { get; }
 
 
-        public BulgariaRivetOrganizationDirectoryPathProvider(
+        public RivetOrganizationDirectoryPathProvider(
             IDropboxDirectoryPathProvider dropboxDirectoryPathProvider,
             IOrganizationStringlyTypedPathOperator organizationStringlyTypedPathOperator)
         {
