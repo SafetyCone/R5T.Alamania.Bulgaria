@@ -12,8 +12,8 @@ namespace R5T.Alamania.Bulgaria
     /// </summary>
     public class RivetOrganizationDirectoryPathProvider : IRivetOrganizationDirectoryPathProvider
     {
-        public IDropboxDirectoryPathProvider DropboxDirectoryPathProvider { get; }
-        public IOrganizationStringlyTypedPathOperator OrganizationStringlyTypedPathOperator { get; }
+        private IDropboxDirectoryPathProvider DropboxDirectoryPathProvider { get; }
+        private IOrganizationStringlyTypedPathOperator OrganizationStringlyTypedPathOperator { get; }
 
 
         public RivetOrganizationDirectoryPathProvider(
