@@ -28,7 +28,7 @@ namespace R5T.Alamania.Bulgaria
         {
             var dropboxDirectoryPath = this.DropboxDirectoryPathProvider.GetDropboxDirectoryPath();
 
-            var rivetOrganizationDropboxDirectoryPath = this.OrganizationStringlyTypedPathOperator.GetOrganizationDirectoryPath(dropboxDirectoryPath, RivetOrganization.Instance.Value);
+            var rivetOrganizationDropboxDirectoryPath = this.OrganizationStringlyTypedPathOperator.GetOrganizationDirectoryPath(dropboxDirectoryPath, RivetOrganization.Instance);
             return rivetOrganizationDropboxDirectoryPath;
         }
     }
